@@ -1,0 +1,79 @@
+<ion-view hide-nav-bar=true>
+  <ion-content scroll=false class="votally-back-cream">
+    <div class='signup-logo'>
+      <img src="./img/votally-login-300-x.png">
+    </div>
+    <form name="signupForm" class="signup-form" novalidate ng-submit="signUp(usernameInput, passwordInput, emailInput)">
+      <div class="list">
+<!-- Username input and validation -->
+        <div class="error-container" ng-show="showSignupError">
+          <small class="error">
+            {{signupError}}
+          </small>
+        </div>
+        <label class="item item-input">
+          <i class="icon ion-person"></i>
+          <input ng-model="usernameInput" name="username" type="text" placeholder=" Username" ng-minlength=6 ng-maxlength=16 required >
+        </label>
+          <div class="error-container" ng-show="signupForm.username.$dirty && signupForm.username.$invalid">
+            <small class="error" ng-show="signupForm.username.$error.required">
+              Please enter a username
+            </small>
+            <small class="error" ng-show="signupForm.username.$error.minlength">
+              Must contain at least 6 characters
+            </small>
+            <small class="error" ng-show="signupForm.username.$error.maxlength">
+              Exceeds the 16 characters limit
+            </small>
+          </div>
+        <!-- Password input and validation -->
+        <label class="item item-input">
+          <i class="icon ion-key"></i>
+          <input ng-model="passwordInput" name="password" type="password" placeholder=" Password" ng-minlength=6 ng-maxlength=16 required>
+        </label>
+          <div class="error-container" ng-show="signupForm.password.$dirty && signupForm.password.$invalid">
+            <small class="error" ng-show="signupForm.password.$error.required">
+              Please enter a password
+            </small>
+            <small class="error" ng-show="signupForm.password.$error.minlength">
+              Must contain at least 6 characters
+            </small>
+            <small class="error" ng-show="signupForm.password.$error.maxlength">
+              Exceeds the 16 characters limit
+            </small>
+          </div>
+<!-- Confirm Password input and validation -->
+        <label class="item item-input">
+          <i class="icon ion-key"></i>
+          <input ng-model="confirmInput" name="confirmed" type="password" placeholder=" Confirm Password" compare-input match-target="passwordInput" required>
+        </label>
+          <div class="error-container" ng-show="signupForm.confirmed.$dirty && signupForm.confirmed.$invalid">
+            <small class="error" ng-show="signupForm.confirmed.$error.required">
+              Please confirm your password
+            </small>
+            <small class="error" ng-show="signupForm.confirmed.$error.match">
+              Password does not match
+            </small>
+          </div>
+<!-- Email input and validation -->
+        <label class="item item-input">
+          <i class="icon ion-email"></i>
+          <input ng-model="emailInput" name="email" type="email" placeholder=" Email" required>
+        </label>
+          <div class="error-container" ng-show="signupForm.email.$dirty && signupForm.email.$invalid">
+            <small class="error" ng-show="signupForm.email.$error.required">
+              Please enter your email.
+            </small>
+            <small class="error" ng-show="signupForm.email.$error.email">
+              Invalid email
+            </small>
+          </div>
+        <label class="item">
+          <button class="button button-block signup" type="submit" ng-disabled="signupForm.$invalid">
+            signup
+          </button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

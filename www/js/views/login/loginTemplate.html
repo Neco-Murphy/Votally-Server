@@ -1,0 +1,45 @@
+<ion-view hide-nav-bar=true class="votally-back-cream">
+  <ion-content class="votally-back-cream">
+    <div class='login-logo'>
+      <img src="./img/votally-login-300-x.png">
+    </div>
+    <form class="login-form" name="loginForm" novalidate ng-submit="logIn(usernameInput, passwordInput)">
+      <div class="list">
+        <div class="error-container" ng-show="showLoginError">
+          <small class="error">
+            {{loginError}}
+          </small>
+        </div>
+        <label class="item item-input">
+          <i class="icon ion-person"></i>
+          <input ng-model="usernameInput" name="username" placeholder=" Username" type="text" required>
+        </label>
+        <div class="error-container" ng-show="loginForm.username.$invalid">
+            <small class="error" ng-show="loginForm.username.$error.required">
+              Please enter a username
+            </small>
+        </div>
+        <label class="item item-input">
+          <i class="icon ion-key"></i>
+          <input ng-model="passwordInput" name="password" placeholder=" Password" type="password" required>
+        </label>
+        <div class="error-container" ng-show="loginForm.password.$invalid">
+            <small class="error" ng-show="loginForm.password.$error.required">
+              Please enter a password
+            </small>
+        </div>
+        <label class="item">
+          <button class="button button-block" type="submit" ng-disabled="loginForm.$invalid">
+            login
+          </button>
+        </label>
+        <label class="item login-signup">
+          <p>Don't have an account?</p>
+          <button class="button button-block signup" ng-click="signUp()">
+            signup
+          </button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

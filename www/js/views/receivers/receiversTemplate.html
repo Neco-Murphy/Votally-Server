@@ -1,0 +1,44 @@
+<ion-view hide-nav-bar=true title="Receivers" class="votally-back-cream">
+  <ion-content>
+    <!-- Title Bar -->
+    <div class="votally-title-bar">
+      <div class="votally-title-name">
+        <span>Send To</span>
+      </div>
+    </div>
+      <ion-list class="receivers-list">
+        <ion-item ng-repeat="receiver in allReceivers"
+                  ng-class="{selected: isSelected(receiver)}"
+                  ng-click="select(receiver)">
+            {{receiver.username}}
+        </ion-item>
+      </ion-list>
+  </ion-content>
+  <!-- Footer which contains a button to make the final send -->
+  <div class="bar votally-footer votally-back-cream">
+      <div class="footer-left">
+        <button class="button button-assertive cancel" ng-click="cancelSend()">
+          Cancel
+        </button>
+      </div>
+      <div class="footer-center">
+      </div>
+      <div class="footer-right">
+        <button class="button button-dark send" ng-click="setReceivers()">
+          Send
+        </button>
+      </div>
+    </div>
+
+<!--   <div class="bar home-footer votally-back-cream">
+      <button class="button button-stable button-assertive button-outline"
+            ng-click="cancelSend()">
+        Cancel
+      </button>    
+    <h1 class="title"> </h1>
+    <button class="button button-stable button-balanced button-outline"
+            ng-click="setReceivers()">
+        Send
+    </button>
+  </ion-footer-bar> -->
+</ion-view>
