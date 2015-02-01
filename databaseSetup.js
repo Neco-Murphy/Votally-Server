@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'production') {
     password: "",
     database: "test"
   });
-// }
+}
 
 dbConnection.connect();
 
